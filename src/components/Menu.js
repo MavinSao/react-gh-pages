@@ -14,11 +14,9 @@ class Menu extends Component {
                         <Navbar.Brand>AMS</Navbar.Brand>
                         </Link> 
                         <Nav className="mr-auto">
-                        <Link to="/">
-                        <Nav.Link>Home</Nav.Link>
-                        </Link>
-                        <Nav.Link href="#features">Category</Nav.Link>
-                        <Nav.Link href="#pricing">About</Nav.Link>
+                        <Nav.Link as={Link} to="/" >Home</Nav.Link>
+                        <Nav.Link as={Link} to="/Category" >Category</Nav.Link>
+                        <Nav.Link as={Link} to="/About" >About</Nav.Link>
                         </Nav>
                         <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" 

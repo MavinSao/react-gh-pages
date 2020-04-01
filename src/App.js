@@ -6,6 +6,8 @@ import Menu from './components/Menu';
 import { BrowserRouter, Route } from 'react-router-dom';
 import ViewItem from './components/ViewItem';
 import AddArticle from './components/AddArticle';
+import Category from './components/Category';
+import About from './components/About';
 
 export const baseURL = "http://110.74.194.124:15011/";
 
@@ -18,6 +20,8 @@ function App() {
           <Route path="/detail/:id" component={ViewItem}/>  
           <Route exact path="/addUpdate" component={AddArticle}/>  
           <Route path="/addUpdate/:id" component={AddArticle}/> 
+          <Route path="/Category" component={Category}/> 
+          <Route path="/About" component={About}/> 
       </div>  
     </BrowserRouter>
   );
