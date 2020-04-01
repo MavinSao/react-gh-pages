@@ -4,8 +4,6 @@ const initState = {
     articles : []
 }
 
-
-
 export const articleReducer = (state = initState, action) => {  
     
     
