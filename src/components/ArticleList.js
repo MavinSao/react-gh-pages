@@ -38,7 +38,9 @@ class ArticleList extends Component {
                                 <td>{article.ID}</td>
                                 <td>{article.TITLE}</td>
                                 <td>{article.DESCRIPTION}</td>
-                                <td> <img src={article.IMAGE} width="80px" height="80px"/> </td>
+                                <td> 
+                                    <img src={article.IMAGE === null? 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/1200px-Circle-icons-profile.svg.png' : article.IMAGE} width="80px" height="80px"/>
+                                 </td>
                                 <td>
                                     <Link to={`/detail/${article.ID}`}>
                                         <Button variant="secondary" size="sm">View</Button>
