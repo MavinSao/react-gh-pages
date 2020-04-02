@@ -3,6 +3,7 @@ import {Form,Container,Button,Image} from 'react-bootstrap'
 import Axios from 'axios';
 import { baseURL } from '../App';
 import { BoxLoading } from 'react-loadingg';
+import { strings } from "../localization/string";
 
 const initState = {
             id: '',
@@ -124,25 +125,25 @@ export default class AddArticle extends Component {
     render() {
         return (
             <Container>
-                <h1 className="App my-4">{ this.state.id === undefined? "Add Article" : "Update Article"}</h1>
+                <h1 className="App my-4">{ this.state.id === undefined? strings.addNewArtilce : strings.updateArticle}</h1>
                 <div>{this.state.isLoading? <BoxLoading /> : null}</div>
                 <Form>
                 <Form.Group controlId="title">
-                    <Form.Label>TITLE</Form.Label>
+                    <Form.Label>{strings.title}</Form.Label>
                     <Form.Control type="text" name="title" placeholder="Enter Title" value={this.state.title}
                     onChange = {this.handler.bind(this)}
                     />
                     <div style={{color:"red"}}>{this.state.titleError}</div>
                 </Form.Group>
                 <Form.Group controlId="description">
-                    <Form.Label>DESCRIPTION</Form.Label>
+                    <Form.Label>{strings.description}</Form.Label>
                     <Form.Control type="text" name="description" placeholder="Enter Description" value={this.state.description}
                     onChange = {this.handler.bind(this)}
                     />
                     <div style={{color:"red"}}>{this.state.descriptionError}</div>
                 </Form.Group>
                 <Form>
-                    <Form.Label>Image</Form.Label>
+                    <Form.Label>{strings.thumbnail}</Form.Label>
                     <Form.File 
                         id="custom-file"
                         label="Custom file input"
@@ -154,7 +155,7 @@ export default class AddArticle extends Component {
                    onClick = {()=>{
                        this.addUpdateArticle()
                    }}
-                >Submit</Button>{' '}
+                >{strings.submit}</Button>
                 </Form>
             </Container>
         )

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import {fetchCategory} from './../actions/categoryAction'
 import {Container,Table,Jumbotron} from 'react-bootstrap'
+import { strings } from '../localization/string'
 class Category extends Component {
     componentWillMount(){
       this.props.fetchCategory()
@@ -10,14 +11,14 @@ class Category extends Component {
         return (
             <div>
                 <Jumbotron className="App">
-                    <h1>Category</h1>
+                    <h1>{strings.category}</h1>
                 </Jumbotron>
                 <Container>  
                 <Table striped bordered hover>
                     <thead>
                         <tr>
                         <th>#</th>
-                        <th>Name</th>
+                        <th>{strings.title}</th>
                         </tr>
                     </thead>
                     <tbody>

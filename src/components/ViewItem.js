@@ -17,6 +17,15 @@ export default class ViewItem extends Component {
         })     
     }
 
+    formatDate(){
+        const date = this.state.article.CREATED_DATE + '';
+        const yy = date.substring(0,4)
+        const mm = date.substring(4,6)
+        const dd = date.substring(6,8)
+        const Dates = [yy,mm,dd]
+        return Dates.join('-')
+    }
+
     componentWillMount(){
         
         this.fetchOneArticle(this.props.match.params.id);
@@ -26,7 +35,7 @@ export default class ViewItem extends Component {
         return (
             <Container>
                 <h1>{this.state.article.TITLE}</h1>
-                <h4>Date : {this.state.article.CREATED_DATE}</h4>
+                <h4>Date : {this.formatDate()}</h4>
                 <img src={this.state.article.IMAGE} width="100%"/>
                 <h3>Description : </h3>
                 <p>{this.state.article.DESCRIPTION}</p>

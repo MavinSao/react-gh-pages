@@ -3,21 +3,38 @@ import { connect } from 'react-redux'
 import { fetchArticle, searchArticle, deleteArticle } from './../actions/articleAction'
 import {Container, Table, Button, Jumbotron} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import { BoxLoading } from 'react-loadingg';
+import { strings } from "../localization/string";
+
 class ArticleList extends Component {
-    componentDidMount(){
-        this.props.fetchArticle()      
+    constructor(props){
+        super(props)
+        this.state = {
+            isLoading : false
+        }
     }
+    componentWillMount(){ 
+        console.log("Article Loading");    
+        this.props.fetchArticle()
+    } 
+    componentDidMount(){
+
+
+
+    }
+
     render() {
         return (
             <div>
+            <div>{this.state.isLoading? <BoxLoading /> : null}</div>
             <Jumbotron className="App">
-                    <h1>Article Management System</h1>
+                    <h1>{strings.titleApp}</h1>
                     <p>
                     MOST POPULAR LEADERSHIP AND MANAGEMENT ARTICLES 
                     </p>
                     <p>
                         <Link to="/addUpdate">
-                        <Button variant="primary">Add New</Button>
+                        <Button variant="primary">{strings.addNew}</Button>
                         </Link>
                     </p>
             </Jumbotron>
@@ -26,10 +43,10 @@ class ArticleList extends Component {
                     <thead>
                         <tr>
                         <th>#</th>
-                        <th style={{width:"20%"}}>Title</th>
-                        <th style={{width:"40%"}}>Description</th>
-                        <th>Thumnail</th>
-                        <th>Action</th>
+                        <th style={{width:"20%"}}>{strings.title}</th>
+                        <th style={{width:"40%"}}>{strings.description}</th>
+                        <th>{strings.thumbnail}</th>
+                        <th>{strings.action}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,16 +60,16 @@ class ArticleList extends Component {
                                  </td>
                                 <td>
                                     <Link to={`/detail/${article.ID}`}>
-                                        <Button variant="secondary" size="sm">View</Button>
+                                        <Button variant="secondary" size="sm">{strings.view}</Button>
                                     </Link>
                                     <Link to={`/addUpdate/${article.ID}`}>
-                                    <Button variant="info" size="sm" className="mx-2">Update</Button>
+                                    <Button variant="info" size="sm" className="mx-2">{strings.update}</Button>
                                     </Link>
                                     <Button variant="danger" size="sm" 
                                         onClick = {()=>{
                                             this.props.deleteArticle(article.ID)
                                         }}
-                                    >Delete</Button>
+                                    >{strings.delete}</Button>
                                 </td>
                             </tr>
                         )}
