@@ -24,6 +24,7 @@ class ArticleList extends Component {
     }
 
     render() {
+        
         return (
             <div>
             <div>{this.state.isLoading? <BoxLoading /> : null}</div>

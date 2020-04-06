@@ -31,8 +31,7 @@ export const deleteArticle = (id) => {
         axios.delete(`${baseURL}v1/api/articles/${id}`).then(res => {
             dp({
                 type: actionType.delete_article,
-                payLoad: id,
-                isLoading: false
+                payLoad: id
             })
         })
     }
